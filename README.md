@@ -2,6 +2,8 @@
 
 A Vue componenet for a WoW Armory. To be used with vMangos Priavte Server Core.
 
+With Help From: https://github.com/vmangos/MadnessCMS
+
 ## Project Setup
 
 ```sh
