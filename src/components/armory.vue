@@ -4,30 +4,30 @@
       {{ character_info.name }}
       <div class="center title">Level {{ character_info.level }} {{ character_info.race}} {{ character_info.class }}</div>
     </div>
-    <section id="armory">
+    <section id="armory" :style="{ 'background-image': 'url(/src/assets/' + character_info.faction + '.png)' }">
       <section id="armory_left">
-        <div class="item"><a href="https://classic.wowhead.com/item=22005" target="_blank"></a>
+        <div class="item" id="head"><a :href="wowhead_url + `${character_info.gear.head_id}`" target="_blank"></a>
           <div><img src="../assets/default/head.gif" alt=""></div>
         </div>
-        <div class="item"><a href="https://classic.wowhead.com/item=" target="_blank"></a>
+        <div class="item" id="neck"><a :href="wowhead_url + `${character_info.gear.neck_id}`" target="_blank"></a>
           <div><img src="../assets/default/neck.gif" alt=""></div>
         </div>
-        <div class="item"><a href="https://classic.wowhead.com/item=" target="_blank"></a>
+        <div class="item" id="shoulder"><a :href="wowhead_url + `${character_info.gear.shoulder_id}`" target="_blank"></a>
           <div><img src="../assets/default/shoulders.gif" alt=""></div>
         </div>
-        <div class="item"><a href="https://classic.wowhead.com/item=22654" target="_blank"></a>
+        <div class="item" id="back"><a :href="wowhead_url + `${character_info.gear.back_id}`" target="_blank"></a>
+          <div><img src="../assets/default/back.gif" alt=""></div>
+        </div>
+        <div class="item" id="chest"><a :href="wowhead_url + `${character_info.gear.chest_id}`" target="_blank"></a>
           <div><img src="../assets/default/chest.gif" alt=""></div>
         </div>
-        <div class="item"><a href="https://classic.wowhead.com/item=16905" target="_blank"></a>
-          <div><img src="../assets/default/chest.gif" alt=""></div>
-        </div>
-        <div class="item"><a href="https://classic.wowhead.com/item=" target="_blank"></a>
+        <div class="item" id="body"><a :href="wowhead_url + `${character_info.gear.body_id}`" target="_blank"></a>
           <div><img src="../assets/default/body.gif" alt=""></div>
         </div>
-        <div class="item"><a href="https://classic.wowhead.com/item=" target="_blank"></a>
+        <div class="item" id="tabard"><a :href="wowhead_url + `${character_info.gear.tabard_id}`" target="_blank"></a>
           <div><img src="../assets/default/tabard.gif" alt=""></div>
         </div>
-        <div class="item"><a href="https://classic.wowhead.com/item=" target="_blank"></a>
+        <div class="item" id="wrists"><a :href="wowhead_url + `${character_info.gear.wrists_id}`" target="_blank"></a>
           <div><img src="../assets/default/wrists.gif" alt=""></div>
         </div>
       </section>
@@ -45,7 +45,8 @@
                   </tr>
                   <tr>
                     <td>Online</td>
-                    <td>Yes</td>
+                    <td v-if="character_info.is_online">Yes</td>
+                    <td v-else>No</td>
                   </tr>
                   <tr>
                     <td>Honor Points</td>
@@ -68,40 +69,40 @@
           </section>
           </section>
       <section id="armory_right">
-        <div class="item"><a href="https://classic.wowhead.com/item=22654" target="_blank"></a>
+        <div class="item" id="hands"><a :href="wowhead_url + `${character_info.gear.hands_id}`" target="_blank"></a>
           <div><img src="../assets/default/hands.gif" alt=""></div>
         </div>
-        <div class="item"><a href="https://classic.wowhead.com/item=16910" target="_blank"></a>
+        <div class="item" id="waist"><a :href="wowhead_url + `${character_info.gear.waist_id}`" target="_blank"></a>
           <div><img src="../assets/default/waist.gif" alt=""></div>
         </div>
-        <div class="item"><a href="https://classic.wowhead.com/item=22654" target="_blank"></a>
+        <div class="item" id="legs"><a :href="wowhead_url + `${character_info.gear.legs_id}`" target="_blank"></a>
           <div><img src="../assets/default/legs.gif" alt=""></div>
         </div>
-        <div class="item"><a href="https://classic.wowhead.com/item=16906" target="_blank"></a>
+        <div class="item" id="feet"><a :href="wowhead_url + `${character_info.gear.feet_id}`" target="_blank"></a>
           <div><img src="../assets/default/feet.gif" alt=""></div>
         </div>
-        <div class="item"><a href="https://classic.wowhead.com/item=" target="_blank"></a>
+        <div class="item" id="finger1"><a :href="wowhead_url + `${character_info.gear.finger1_id}`" target="_blank"></a>
           <div><img src="../assets/default/finger.gif" alt=""></div>
         </div>
-        <div class="item"><a href="https://classic.wowhead.com/item=22654" target="_blank"></a>
+        <div class="item" id="finger2"><a :href="wowhead_url + `${character_info.gear.finger2_id}`" target="_blank"></a>
           <div><img src="../assets/default/finger.gif" alt=""></div>
         </div>
-        <div class="item"><a href="https://classic.wowhead.com/item=22654" target="_blank"></a>
+        <div class="item" id="trinket1"><a :href="wowhead_url + `${character_info.gear.trinket1_id}`" target="_blank"></a>
           <div><img src="../assets/default/trinket.gif" alt=""></div>
         </div>
-        <div class="item"><a href="https://classic.wowhead.com/item=19954" target="_blank"></a>
+        <div class="item" id="trinket2"><a :href="wowhead_url + `${character_info.gear.trinket2_id}`" target="_blank"></a>
           <div><img src="../assets/default/trinket.gif" alt=""></div>
         </div>
       </section>
 
       <section id="armory_bottom">
-        <div class="item"><a href="https://classic.wowhead.com/item=19352" target="_blank"></a>
+        <div class="item" id="mainhand"><a :href="wowhead_url + `${character_info.gear.mainhand_id}`" target="_blank"></a>
           <div><img src="../assets/default/mainhand.gif" alt=""></div>
         </div>
-        <div class="item"><a href="https://classic.wowhead.com/item=22654" target="_blank"></a>
+        <div class="item" id="offhand"><a :href="wowhead_url + `${character_info.gear.offhand_id}`" target="_blank"></a>
           <div><img src="../assets/default/offhand.gif" alt=""></div>
         </div>
-        <div class="item"><a href="https://classic.wowhead.com/item=17069" target="_blank"></a>
+        <div class="item" id="ranged"><a :href="wowhead_url + `${character_info.gear.range_id}`" target="_blank"></a>
           <div><img src="../assets/default/ranged.gif" alt=""></div>
         </div>
       </section>
@@ -110,18 +111,21 @@
 </template>
 
 <script setup>
-const props = defineProps({
-  character_info: {
-    name: String,
-    class: String,
-    level: Number,
-    faction: String,
-    race: String,
-    honor: Number,
-    week_kills: Number,
-    total_kills: Number,
-  }
-})
+  const wowhead_url = "https://classic.wowhead.com/item="
+  const props = defineProps({
+    character_info: {
+      name: String,
+      class: String,
+      level: Number,
+      faction: String,
+      race: String,
+      honor: Number,
+      week_kills: Number,
+      total_kills: Number,
+      is_online: Boolean,
+      gear: Object
+    }
+  })
 </script>
 
 <style scoped>
@@ -161,7 +165,6 @@ const props = defineProps({
   min-height:512px;
   background-position:top center;
   background-repeat:no-repeat;
-  background-image: url('../assets/horde.png');
 }
 
 #armory_left {
@@ -198,21 +201,6 @@ const props = defineProps({
   margin-top:145px;
 }
 
-#armory_stats_top a {
-  color:#ccc;
-  font-size:14px;
-  margin-right:20px;
-  margin-left:20px;
-}
-
-#armory_stats a:hover {
-  color:#fff;
-}
-
-.armory_current_tab {
-  font-weight:bold;
-  color:#fff !important;
-}
 
 #armory_stats section {
   display:none;
@@ -225,81 +213,25 @@ const props = defineProps({
   margin-right:auto;
 }
 
-#armory_stats_next a {
-  border:1px solid #3a3a3a;
-  background-image: linear-gradient(bottom, rgba(200,200,200,0.3) 0%, rgba(255,255,255,0.3) 100%);
-  background-image: -o-linear-gradient(bottom, rgba(200,200,200,0.3) 0%, rgba(255,255,255,0.3) 100%);
-  background-image: -moz-linear-gradient(bottom, rgba(200,200,200,0.3) 0%, rgba(255,255,255,0.3) 100%);
-  background-image: -webkit-linear-gradient(bottom, rgba(200,200,200,0.3) 0%, rgba(255,255,255,0.3) 100%);
-  background-image: -ms-linear-gradient(bottom, rgba(200,200,200,0.3) 0%, rgba(255,255,255,0.3) 100%);
-  background-image: -webkit-gradient(
-    linear,
-    left bottom,
-    left top,
-    color-stop(1, rgba(255,255,255,0.3)),
-    color-stop(0, rgba(200,200,200,0.3))
-  );
-  text-shadow:1px 1px 0px #000;
-  box-shadow:0px 1px 0px #a2a2a2 inset;
-  -webkit-box-shadow:0px 1px 0px #a2a2a2 inset;
-  -moz-box-shadow:0px 1px 0px #a2a2a2 inset;
-  color:#fff;
-
-  width:80px;
-  padding:3px;
-  border-radius:5px;
-  font-size:14px;
-}
-
-#armory_stats_next a:active {
-  box-shadow:0px 0px 5px #151515 inset;
-  -webkit-box-shadow:0px 0px 5px #151515 inset;
-  -moz-box-shadow:0px 0px 5px #151515 inset;
-  color:#c1c1c1;
-}
-
-#armory_stats_next {
-  margin-top:10px;
-}
-
 #armory_stats td:first-child {
   color:#fff;
 }
 
 #armory_stats td:nth-child(2) {
   text-align:right;
-}#armory_stats {
+}
+#armory_stats {
   float:left;
   width:367px;
   height:232px;
   margin-left:58px;
   margin-top:145px;
-  text-shadow:1px 1px 0px #000;
   overflow:hidden;
 }
-
-#armory_stats_top a {
-  color:#ccc;
-  font-size:14px;
-  margin-right:20px;
-  margin-left:20px;
-}
-
-#armory_stats a:hover {
-  color:#fff;
-}
-
 .armory_current_tab {
   font-weight:bold;
   color:#fff !important;
 }
-
-#armory_stats section {
-  display:none;
-  color:#fff;
-  margin-top:8px;
-}
-
 #armory_stats td {
   padding:2%;
   font-size:14px;
@@ -310,48 +242,8 @@ const props = defineProps({
   margin-right:auto;
 }
 
-#armory_stats_next a {
-  border:1px solid #3a3a3a;
-  background-image: linear-gradient(bottom, rgba(200,200,200,0.3) 0%, rgba(255,255,255,0.3) 100%);
-  background-image: -o-linear-gradient(bottom, rgba(200,200,200,0.3) 0%, rgba(255,255,255,0.3) 100%);
-  background-image: -moz-linear-gradient(bottom, rgba(200,200,200,0.3) 0%, rgba(255,255,255,0.3) 100%);
-  background-image: -webkit-linear-gradient(bottom, rgba(200,200,200,0.3) 0%, rgba(255,255,255,0.3) 100%);
-  background-image: -ms-linear-gradient(bottom, rgba(200,200,200,0.3) 0%, rgba(255,255,255,0.3) 100%);
-  background-image: -webkit-gradient(
-    linear,
-    left bottom,
-    left top,
-    color-stop(1, rgba(255,255,255,0.3)),
-    color-stop(0, rgba(200,200,200,0.3))
-  );
-  text-shadow:1px 1px 0px #000;
-  box-shadow:0px 1px 0px #a2a2a2 inset;
-  -webkit-box-shadow:0px 1px 0px #a2a2a2 inset;
-  -moz-box-shadow:0px 1px 0px #a2a2a2 inset;
-  color:#fff;
-
-  width:80px;
-  padding:3px;
-  border-radius:5px;
-  font-size:14px;
-}
-
-#armory_stats_next a:active {
-  box-shadow:0px 0px 5px #151515 inset;
-  -webkit-box-shadow:0px 0px 5px #151515 inset;
-  -moz-box-shadow:0px 0px 5px #151515 inset;
-  color:#c1c1c1;
-}
-
 #armory_stats_next {
   margin-top:10px;
 }
 
-#armory_stats td:first-child {
-  color:#fff;
-}
-
-#armory_stats td:nth-child(2) {
-  text-align:right;
-}
 </style>
