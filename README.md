@@ -1,8 +1,6 @@
 # vue-wow-armory
 
-A Vue componenet for a WoW Armory. To be used with vMangos Priavte Server Core.
-
-With Help From: https://github.com/vmangos/MadnessCMS
+A Vue Component of the Armory Module in https://github.com/vmangos/MadnessCMS
 
 ## Project Setup
 
